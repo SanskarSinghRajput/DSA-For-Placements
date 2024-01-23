@@ -1,6 +1,17 @@
 #include<iostream> 
 using namespace std;
 
+// cin.getline(str,len) is used to take string as input
+
+char toLowerCase(char ch) {
+    if(ch >='a' && ch <='z')
+        return ch;
+    else{
+        char temp = ch - 'A' + 'a';
+        return temp;
+    }
+}
+
 // Check Palindrome 2 Approaches
 
     //----------Approach 1----------
@@ -13,16 +24,6 @@ using namespace std;
     // Step3- If(a[s] = a[e]) s++, e-- and check further characters
     // Step4- Else return 0 means not a Palindrome
     // Step5- When loop finishes return 1 means is Palindrome
-
-
-char toLowerCase(char ch) {
-    if(ch >='a' && ch <='z')
-        return ch;
-    else{
-        char temp = ch - 'A' + 'a';
-        return temp;
-    }
-}
 
 bool checkPalindrome(char a[], int n) {
     int s = 0;

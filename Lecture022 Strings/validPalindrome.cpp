@@ -7,7 +7,8 @@ private:
     // Check Palindrome 2 Approaches
     //----------Approach 1----------
     // Step1- Reverse the String and Store it into a new String
-    // Step2- Then Compare both strings if Str1 == Str2 is Palindrome else not Palindrome
+    // Step2- Then Compare both strings if Str1 == Str2 using strcmp(str1,str2) == 0 is Palindrome 
+    // else not Palindrome
 
     //----------Approach 2----------
     // Step1- Initialize two variable s=0 and e=str.length()-1
