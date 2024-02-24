@@ -1,71 +1,52 @@
-/************************************************************
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
 
-    Following is the linked list node structure.
-    
-    template <typename T>
-    class Node {
-        public:
-        T data;
-        Node* next;
+// Function to merge two sorted linked lists.
+ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+    // Check if either of the lists is empty.
+    if (list1 == NULL) return list2;
+    if (list2 == NULL) return list1;
 
-        Node(T data) {
-            next = NULL;
-            this->data = data;
+    // Create a dummy node to hold the merged list.
+    ListNode* ans = new ListNode(-1);
+    // Pointer to traverse the merged list.
+    ListNode* mptr = ans;
+
+    // Loop until either of the lists reaches its end.
+    while (list1 != NULL && list2 != NULL) {
+        // If the value in list1 is less than or equal to the value in list2.
+        if (list1->val <= list2->val) {
+            // Connect mptr to list1.
+            mptr->next = list1;
+            // Move mptr to list1.
+            mptr = list1;
+            // Move list1 to its next node.
+            list1 = list1->next;
         }
-
-        ~Node() {
-            if (next != NULL) {
-                delete next;
-            }
-        }
-    };
-
-************************************************************/
-
-void solve(Node<int>* first, Node<int>* second) {
-    
-    
-    Node* curr1 = first;
-    Node* next1 = curr1 -> next;
-    
-    Node* curr2 = second;
-    Node* next2 = curr2 -> next;
-    
-    while(next1 != NULL && curr2 != NULL) {
-        
-        if( (curr2 -> data >= curr1 -> data ) 
-           && ( curr2 -> data <= next1 -> data)) {
-            
-            curr1 -> next = curr2;
-            curr2 -> next = next1;
-            curr1 = curr2;
-            curr2 = next2;
-        }
+        // If the value in list2 is less than the value in list1.
         else {
-            
+            // Connect mptr to list2.
+            mptr->next = list2;
+            // Move mptr to list2.
+            mptr = list2;
+            // Move list2 to its next node.
+            list2 = list2->next;
         }
-        
-        
     }
-    
-    
-}
 
-Node<int>* sortTwoLists(Node<int>* first, Node<int>* second)
-{
-    if(first == NULL)
-        return second;
-    
-    if(second == NULL)
-        return first;
-    
-    if(first -> data <= second -> data ){
-        solve(first, second);
+    // If list1 has remaining nodes, connect them to the merged list.
+    if (list1) {
+        mptr->next = list1;
     }
-    else
-    {
-        solve(second, first);
+    // If list2 has remaining nodes, connect them to the merged list.
+    if (list2) {
+        mptr->next = list2;
     }
-    
-    
+
+    // Return the merged list starting from the next of the dummy node.
+    return ans->next;
 }

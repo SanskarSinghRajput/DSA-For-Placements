@@ -34,6 +34,13 @@ public:
         // Return the modified string 's' after removing all occurrences of 'part'
         return s;
     }
+
+    string removeOccurrences2(string s, string part) {
+        while(s.length()!=0 && s.find(part)<s.length()){
+            s.erase(s.find(part),part.length());
+        }
+        return s;
+    }
 };
 
 int main() {

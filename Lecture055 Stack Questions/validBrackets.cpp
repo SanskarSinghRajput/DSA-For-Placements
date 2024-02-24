@@ -1,35 +1,47 @@
+class Solution {
 
+// Optimized Approach
+public:
+    bool isValid(string s) {
+        stack<char> st;
+        for(int i=0; i<s.length(); i++){
+            if(s[i]=='(' || s[i]=='{' || s[i]=='[')
+              st.push(s[i]);
+            else{
+                if(!st.empty() && ( (st.top()=='(' && s[i]==')') || (st.top()=='{' && s[i]=='}') || (st.top()=='[' && s[i]==']') ) )
+                    st.pop();
+                else
+                    return false;
+            }
+        }
+        if(st.empty())
+           return true;
+        else
+           return false;
+    }
+};
 
-bool isValidParenthesis(string expression)
-{
+bool isValidParenthesis(string expression){
   	 stack<char> s;
-     for(int i=0; i<expression.length(); i++) {
-         
-         char ch = expression[i];
-         
+     for(int i=0; i<expression.length(); i++) { 
+         char ch = expression[i]; 
          //if opening bracket, stack push
          //if close bracket, stacktop check and pop
-         
          if(ch == '(' || ch == '{' || ch == '['){
              s.push(ch);
          }
-         else
-         {
+         else{
              //for closing bracket
              if(!s.empty()) {
                   char top = s.top();
-                  if( (ch == ')' && top == '(') || 
-                     ( ch == '}' && top == '{') || 
-                     (ch == ']' && top == '[') ) {
+                  if((ch == ')' && top == '(') || ( ch == '}' && top == '{') || (ch == ']' && top == '[')) {
                       s.pop();
                   }
-                 else
-                 {
+                 else{
                      return false;
                  }
              }
-             else
-             {
+             else{
                  return false;
              } 
          }  

@@ -1,5 +1,6 @@
-int findUnique(int *arr, int size)
-{
+// Find Unique Element in an Array
+
+int findUnique(int *arr, int size){
    	int ans = 0;
     
     for(int i = 0; i<size; i++) {

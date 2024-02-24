@@ -8,13 +8,14 @@ void printArray(int arr[], int n) {
     cout << endl;
 }
 
+// 2 pointer approach
 void sortOne(int arr[], int n) {
 
     int left = 0, right = n-1;
 
     while(left < right) {
 
-        while(arr[left] == 0 && left < right )  {
+        while(arr[left] == 0 && left < right ){
             left++;
         }
 
@@ -31,13 +32,10 @@ void sortOne(int arr[], int n) {
             right--;
         }
     }
-
 }
 
 int main() {
-
     int arr[8] = {1,1,0,0,0,0,1,0};
-
     sortOne(arr, 8);
     printArray(arr, 8);
 
