@@ -98,8 +98,7 @@ void deleteNode(int position, Node* & head) {
         temp -> next = NULL;
         delete temp;
     }
-    else
-    {
+    else{
         //deleting any middle node or last node
         Node* curr = head;
         Node* prev = NULL;

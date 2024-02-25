@@ -1,11 +1,15 @@
-// Anagram
-// Given two strings a and b consisting of lowercase characters. The task is to check whether two given strings
-// are an anagram of each other or not. An anagram of a string is another string that contains the same characters,
-// only the order of characters can be different.
+// 242 Valid Anagram
+// An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically 
+// using all the original letters exactly once.
 
-// Input:a = geeksforgeeks, b = forgeeksgeeks
-// Output: YES
-// Explanation: Both the string have same characters with same frequency. So, both are anagrams.
+// Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+// Example 1:
+// Input: s = "anagram", t = "nagaram"
+// Output: true
+
+// Example 2:
+// Input: s = "rat", t = "car"
+// Output: false
 
 #include <bits/stdc++.h>
 using namespace std;
