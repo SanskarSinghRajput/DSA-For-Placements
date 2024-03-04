@@ -39,16 +39,8 @@ void reverse(Node*& head,Node* curr,Node* prev){
     curr->next=prev;
 }
 
-Node* reverseLinkedList(Node *head){
-    reverse1(head);
-
-    // Recursive Approach
-    Node* curr=head; 
-    Node* prev=NULL;
-    reverse(head,curr,prev);
-    return head;
- 
-    // Iterative approach  
+// Iterative Approach
+Node* reverse2(Node*& head){
     if(head==NULL || head->next==NULL){
        return head;
     }    
@@ -62,6 +54,19 @@ Node* reverseLinkedList(Node *head){
         curr=forward;
     }
     return prev;
-    
+}
+
+Node* reverseLinkedList(Node *head){
+    // Best Approach
+    return reverse1(head);
+
+    // Recursive Approach
+    Node* curr=head; 
+    Node* prev=NULL;
+    reverse(head,curr,prev);
+    return head;
+ 
+    // Iterative Approach
+    return reverse2(head);  
 }
 

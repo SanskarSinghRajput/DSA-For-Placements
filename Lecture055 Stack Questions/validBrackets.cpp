@@ -1,13 +1,17 @@
-class Solution {
+// Check Valid Parenthesis 
 
-// Optimized Approach
-public:
+class Solution {
+  public:
+    // Optimized Approach
     bool isValid(string s) {
         stack<char> st;
         for(int i=0; i<s.length(); i++){
+            //if opening bracket, stack push
             if(s[i]=='(' || s[i]=='{' || s[i]=='[')
               st.push(s[i]);
+            //if close bracket, stacktop check and pop
             else{
+                //for closing bracket
                 if(!st.empty() && ( (st.top()=='(' && s[i]==')') || (st.top()=='{' && s[i]=='}') || (st.top()=='[' && s[i]==']') ) )
                     st.pop();
                 else

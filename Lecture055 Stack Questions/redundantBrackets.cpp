@@ -1,35 +1,42 @@
-#include<stack>
+// Find redundant brackets in a given expression
+#include<bits/stdc++.h>
+using namespace std;
 
-bool findRedundantBrackets(string &s)
-{
-    stack<char> st;
-    for(int i=0; i<s.length(); i++) {
-        char ch =s[i];
+// Function to find redundant brackets in a given expression
+bool findRedundantBrackets(string &s) {
+    stack<char> st; // Stack to store operators and opening parentheses
+
+    // Traverse through the given expression
+    for (int i = 0; i < s.length(); i++) {
+        char ch = s[i]; // Current character
         
-        if(ch == '(' || ch == '+' ||ch == '-' || ch == '*' || ch == '/') {
+        // If the current character is an operator or an opening parenthesis, push it onto the stack
+        if (ch == '(' || ch == '+' || ch == '-' || ch == '*' || ch == '/') {
             st.push(ch);
-        }
-        else
-        {
-            //ch ya toh ')' hai or lowercase letter
-            
-            if(ch == ')') {
-                bool isRedundant = true;
-                
-                while(st.top() != '(') {
+        } else {
+            // If the current character is a closing parenthesis
+            if (ch == ')') {
+                bool isRedundant = true; // Flag to track if the closing parenthesis is redundant
+
+                // Pop operators until an opening parenthesis is encountered
+                while (st.top() != '(') {
                     char top = st.top();
-                    if(top == '+' ||top == '-' || top == '*' || top == '/') {
+                    
+                    // If an operator is encountered within the parentheses, the parentheses are not redundant
+                    if (top == '+' || top == '-' || top == '*' || top == '/') {
                         isRedundant = false;
                     }
-                    st.pop();
+                    st.pop(); // pop top of stack
                 }
                 
-                if(isRedundant == true)
+                st.pop(); // Pop the opening parenthesis
+                
+                // If the parentheses are redundant, return true
+                if (isRedundant)
                     return true;
-                st.pop();
             }
-            
-        } 
+        }
     }
-    return false;
+    return false; // No redundant brackets found
 }
+

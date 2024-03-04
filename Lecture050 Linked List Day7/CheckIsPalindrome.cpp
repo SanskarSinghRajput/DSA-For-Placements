@@ -27,8 +27,7 @@ class Solution{
     }
   public:
     //Function to check whether the list is palindrome.
-    bool isPalindrome(Node *head)
-    {
+    bool isPalindrome(Node *head){
         if(head -> next == NULL) {
             return true;
         }
@@ -53,7 +52,7 @@ class Solution{
             head2 = head2 -> next;
         }
     
-        //step4 - repeat step 2
+        //step4 - repeat step 2 reverse List after Middle to make Linked List back to original
         temp = middle -> next;
         middle -> next = reverse(temp);
         
@@ -61,19 +60,28 @@ class Solution{
     }
 
     // Approach 1
-    bool isPalindrome(Node *head){
-        vector<int> v;
-        Node* curr = head;
-        while(curr!=NULL){
-            v.push_back(curr->data);
-            curr = curr->next;
+    // Function to check if a linked list is a palindrome
+    // Returns true if the linked list is a palindrome, false otherwise
+    bool isPalindrome(Node* head) {
+        vector<int> v; // Vector to store elements of the linked list
+        Node* curr = head; // Pointer to traverse the linked list
+        
+        // Traverse the linked list and store its elements in the vector
+        while (curr != NULL) {
+            v.push_back(curr->data); // Store the current node's data in the vector
+            curr = curr->next; // Move to the next node
         }
-        int n = v.size();
-        for(int i=0;i<n;i++){
-            if(v[i] != v[n-1-i])
-              return 0;
+        
+        int n = v.size(); // Size of the vector (number of elements in the linked list)
+        
+        // Check if the linked list is a palindrome by comparing elements from both ends of the vector
+        for (int i = 0; i < n; i++) {
+            if (v[i] != v[n - 1 - i]) // If the elements at symmetric positions do not match
+                return false; // The linked list is not a palindrome
         }
-        return 1;
+        
+        return true; // If all elements match, the linked list is a palindrome
     }
+
 
 };

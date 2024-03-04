@@ -1,46 +1,32 @@
-/****************************************************************
-    Following is the Linked List node structure
+// Reverse every k nodes of a linked list
 
-    class Node
-    {
-    public:
-        int data;
-        Node *next;
-        Node(int data)
-        {
-            this->data = data;
-            this->next = NULL;
-        }
-    };
-
-*****************************************************************/
-
-
+// Function to reverse every k nodes of a linked list
+// Returns the head of the modified linked list after reversing every k nodes
 Node* kReverse(Node* head, int k) {
-    //base call
-    if(head == NULL) {
+    // Base case: If the list is empty, return NULL
+    if (head == NULL) {
         return NULL;
     }
     
-    //step1: reverse first k nodes
+    // Step 1: Reverse the first k nodes
     Node* next = NULL;
     Node* curr = head;
     Node* prev = NULL;
-    int count= 0;
+    int count = 0;
     
-    while( curr != NULL && count < k ) {
-        next = curr -> next;
-        curr -> next = prev;
+    while (curr != NULL && count < k) {
+        next = curr->next;
+        curr->next = prev;
         prev = curr;
         curr = next;
         count++;
     }
     
-    //step2: Recursion dekhlega aage ka 
-    if(next != NULL) {
-        head -> next = kReverse(next,k);
+    // Step 2: Recursively process the remaining list (if any) and get the head of the reversed sublist
+    if (next != NULL) {
+        head->next = kReverse(next, k);
     }
     
-    //step3: return head of reversed list
+    // Step 3: Return the head of the reversed list
     return prev;
 }
