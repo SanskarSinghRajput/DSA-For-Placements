@@ -111,8 +111,7 @@ class Solution {
     	height(node);
         return D;
     }
-    
-    /*
+
     // Normal Approach
     // Function to return the diameter of a Binary Tree.
     pair<int,int> diameterFast(Node* root) {
@@ -131,6 +130,7 @@ class Solution {
         
         pair<int,int> ans;
         ans.first = max(op1, max(op2, op3));;
+        // height store in ans.second
         ans.second = max(left.second , right.second) + 1;
 
         return ans;
@@ -139,8 +139,6 @@ class Solution {
     int diameter(Node* root) {
         return diameterFast(root).first;   
     }
-
-    */
 
 };
 

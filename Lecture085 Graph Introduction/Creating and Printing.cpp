@@ -1,6 +1,8 @@
 #include <bits/stdc++.h> 
 vector <vector<int>> printAdjacency(int n, int m, vector <vector<int>> &edges) {
     vector<int> ans[n];
+    // n-> no. of nodes 
+    // m-> no. of edges
     //ans array will store all adjacent nodes coressponding to index
     for(int i=0;i<m;i++){
         int u = edges[i][0];

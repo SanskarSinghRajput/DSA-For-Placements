@@ -10,7 +10,7 @@ bool checkCycleDFS(int node,unordered_map<int,bool> &visited,
             return true;
           }
        }
-       else if(dfsvisited[neighbour]){
+       else if(visited[neighbour] && dfsvisited[neighbour]){
           return true;
        }
     }

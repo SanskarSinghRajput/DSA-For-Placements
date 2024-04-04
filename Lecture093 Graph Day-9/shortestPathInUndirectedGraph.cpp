@@ -42,6 +42,7 @@ vector<int> shortestPath(vector<pair<int,int>> edges, int n, int m, int s, int t
        currentNode = parent[currentNode];
 	   ans.push_back(currentNode);
 	}
+	// reverse ans vector because it stores path from t to s
 	reverse(ans.begin(),ans.end());
 	return ans;
 

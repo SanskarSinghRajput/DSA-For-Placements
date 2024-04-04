@@ -37,7 +37,8 @@ bool isCyclicDFS(int node,int parent,unordered_map<int,list<int>> &adj,unordered
                 return true;
             }
         }
-        else if(neighbour!=parent){
+        // it will come in elseif when visited[neighbour] hoga
+        else if(visited[neighbour]==true && neighbour!=parent){
             //cycle present
             return true;
         }

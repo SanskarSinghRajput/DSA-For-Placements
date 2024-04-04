@@ -41,23 +41,25 @@ class Solution
     public:
     //Function to return list containing elements of right view of binary tree.
     void solve(Node* root, vector<int> &ans, int level) {
-    //base case
+    // Base case: if node is null, return
     if(root == NULL)
         return ;
        
-    //we entered into a new level    
+    // Add value to result if it's the first node encountered at this level
     if(level == ans.size())
         ans.push_back(root->data);
-        
+
+    // Recursively traverse right subtree before left subtree  
     solve(root->right, ans, level+1);    
     solve(root->left, ans, level+1);
-    
-}
+
+    }
+
     vector<int> rightView(Node *root)
     {
-        vector<int> ans;
-        solve(root, ans, 0);
-        return ans;
+        vector<int> ans; // Result vector to store right side view
+        solve(root, ans, 0); // Call helper function to traverse the tree
+        return ans; // Return the right side view
     }
 };
 
