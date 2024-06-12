@@ -1,6 +1,8 @@
 void dfs(int node,unordered_map<int,bool> &visited,unordered_map<int, list<int>> &adj,
         vector<int> &component){
+    // ans store
     component.push_back(node);
+    // mark visited
     visited[node] = true;
 
     //har connected node k liye recursive call
@@ -24,6 +26,7 @@ vector<vector<int>> depthFirstSearch(int V, int E, vector<vector<int>> &edges){
     vector<vector<int>> ans;
     unordered_map<int,bool> visited;
 
+    // for all node DFS , if not visited
     for(int i=0; i<V; i++){
         if(!visited[i]){
             vector<int> component;

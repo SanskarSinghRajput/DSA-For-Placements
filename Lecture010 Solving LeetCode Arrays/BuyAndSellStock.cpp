@@ -18,6 +18,20 @@
 class Solution {
 public:
     // Best Optimized Approach - O(n) time complexity
+    int maximumProfit(vector<int> &Arr){
+        // Write your code here.
+	    int maxProfit = 0;
+	    int mini = Arr[0];
+	
+	    for(int i=1;i<Arr.size();i++){
+           int curProfit = Arr[i] - mini;
+           maxProfit = max(maxProfit,curProfit);
+           mini = min(mini,Arr[i]);
+        }
+	    return maxProfit;
+    }
+     
+    // Best Optimized Approach - O(n) time complexity
     int maxProfit(vector<int>& prices) {
         int size = prices.size();
         int lsf = INT_MAX; // least so far 
