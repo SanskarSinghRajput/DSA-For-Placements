@@ -3,7 +3,7 @@ vector<int> bfsTraversal(int n, vector<vector<int>> &adj){
     vector<int> ans;
     queue<int> q;
     q.push(0);
-    int visited[n+1] = {0};
+    int visited[n] = {0};
     visited[0] = 1;
     while(!q.empty()){
         int node = q.front();
